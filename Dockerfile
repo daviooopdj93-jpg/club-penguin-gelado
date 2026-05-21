@@ -16,14 +16,12 @@ RUN ARCH=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && wget https://gi
     && tar -C /usr/local/bin -xzvf dockerize-linux-$ARCH-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-$ARCH-$DOCKERIZE_VERSION.tar.gz
 
-# 1. Instala as dependências primeiro (bom para o cache)
+# 1. Copia o arquivo de texto com as dependências
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 2. ESSA LINHA ADICIONADA COPIA TODOS OS ARQUIVOS DO SEU GITHUB PARA O CONTÊINER
+# 2. Copia TODOS os arquivos do seu GitHub (incluindo o bootstrap.py da raiz)
 COPY . .
 
-# 3. Garante que o Python vai rodar de dentro da pasta correta
-WORKDIR /usr/src/houdini/houdini
-
+# 3. Executa o bootstrap direto da raiz /usr/src/houdini
 ENTRYPOINT [ "python", "./bootstrap.py" ]
