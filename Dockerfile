@@ -24,4 +24,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # 3. Executa o bootstrap direto da raiz /usr/src/houdini
-ENTRYPOINT [ "python", "./bootstrap.py", "-da", "dpg-d87ig3tckfvc73c2fd70-a", "-du", "banco_do_pinguim_user", "-dp", "CkflflyZq4vs7BEjLFhDYqLHHVTr7fld", "-dn", "banco_do_pinguim", "login" ]
+ENTRYPOINT [ "python", "./migrate.py", "-da", "dpg-d87ig3tckfvc73c2fd70-a", "-du", "banco_do_pinguim_user", "-dp", "CkflflyZq4vs7BEjLFhDYqLHHVTr7fld", "-dn", "banco_do_pinguim" ]
