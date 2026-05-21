@@ -24,4 +24,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # 3. Executa o bootstrap direto da raiz /usr/src/houdini
-ENTRYPOINT [ "python", "./bootstrap.py" ]
+ENTRYPOINT [ "python", "./bootstrap.py", "login" ]
