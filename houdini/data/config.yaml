@@ -1,0 +1,20 @@
+# Configurações do Banco de Dados do Club Penguin Gelado
+database:
+  host: "181.215.45.65"
+  port: 3306
+  username: "vexmc_pinguim"
+  password: "SUA_SENHA_AQUI"
+  id: "vexmc_gelado"
+
+redis:
+  host: "localhost"
+  port: 6379
+
+# Portas padrão que o emulador usa para rodar as salas do jogo
+servers:
+  Login:
+    id: 100
+    port: 6112
+  Blizzard:
+    id: 200
+    port: 6113
