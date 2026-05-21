@@ -20,8 +20,8 @@ RUN ARCH=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && wget https://gi
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 2. Copia TODOS os arquivos do seu GitHub (incluindo o bootstrap.py da raiz)
+# 2. Copia TODOS os arquivos do seu GitHub
 COPY . .
 
-# 3. Executa o bootstrap direto da raiz /usr/src/houdini
-ENTRYPOINT [ "python", "./migrate.py", "-da", "dpg-d87ig3tckfvc73c2fd70-a", "-du", "banco_do_pinguim_user", "-dp", "CkflflyZq4vs7BEjLFhDYqLHHVTr7fld", "-dn", "banco_do_pinguim" ]
+# 3. Executa o bootstrap direto da raiz em modo login
+ENTRYPOINT [ "python", "./bootstrap.py", "-da", "dpg-d87ig3tckfvc73c2fd70-a", "-du", "banco_do_pinguim_user", "-dp", "CkflflyZq4vs7BEjLFhDYqLHHVTr7fld", "-dn", "banco_do_pinguim", "login" ]
