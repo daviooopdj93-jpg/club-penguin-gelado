@@ -24,4 +24,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # 3. Força a criação das tabelas via psql (com -U maiúsculo) e inicia o emulador
-CMD PGPASSWORD=CkflflyZq4vs7BEjLFhDYqLHHVTr7fld psql -h dpg-d87ig3tckfvc73c2fd70-a -U banco_do_pinguim_user -d banco_do_pinguim -f ./houdini.sql && python ./bootstrap.py -da dpg-d87ig3tckfvc73c2fd70-a -du banco_do_pinguim_user -dp CkflflyZq4vs7BEjLFhDYqLHHVTr7fld -dn banco_do_pinguim login
+CMD ["sh", "-c", "PGPASSWORD=CkflflyZq4vs7BEjLFhDYqLHHVTr7fld psql -h dpg-d87ig3tckfvc73c2fd70-a -U banco_do_pinguim_user -d banco_do_pinguim -f ./houdini.sql && python ./bootstrap.py -da dpg-d87ig3tckfvc73c2fd70-a -du banco_do_pinguim_user -dp CkflflyZq4vs7BEjLFhDYqLHHVTr7fld -dn banco_do_pinguim login"]
